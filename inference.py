@@ -223,4 +223,13 @@ main(bg_removed,args.height,None)
 #str_msg='\nDone: ' + dir_name
 #print(str_msg)
 
+# Add this at the bottom of inference.py
+def run_inference(image_path, height):
+    import argparse
+    import sys
+
+    sys.argv = ['inference.py', '-i', image_path, '-ht', str(height)]
+
+    from inference import main  # Your actual main function
+    return main()
 
