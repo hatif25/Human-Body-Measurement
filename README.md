@@ -1,46 +1,68 @@
 ```markdown
-# 3D Body Measurement Extraction
+# 3D Body Measurement Extraction from Images
 
-Extract **precise body measurements** from a single 2D image using AI.  
-*Outputs metrics only (no 3D model visualization yet).*
+Extract accurate body measurements from a single 2D image using computer vision and deep learning.
 
-## 🚀 Current Features
-- **Input**: Single front-facing body image (tight clothing recommended)
-- **Output**: CSV/JSON with 15+ measurements:
-  ```json
-  {
-    "height_cm": 175.2,
-    "waist_cm": 78.5,
-    "chest_cm": 95.1,
-    "arm_length_cm": 63.4
-  }
-  ```
-- **Supported Measurements**:  
-  Height, Waist, Chest, Hips, Arm Length, Thigh, Inseam, etc.
+## Features
 
-## ⚙️ Usage
-1. Install dependencies:
+- 📏 Extract 15+ body measurements (height, waist, chest, etc.)
+- 📁 Output in JSON/CSV format for easy integration
+- 🖼️ Processes standard image formats (JPG, PNG)
+- ⚡ Fast inference with pre-trained models
+
+## Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/body-measurement.git
+   cd body-measurement
+   ```
+
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-2. Run measurement extraction:
-   ```bash
-   python measure.py --input image.jpg --height 175
-   ```
 
----
+## Usage
 
-🛠 *Future plans: 3D visualization & pose normalization*  
-📧 *Questions? Open an Issue!*
+Run the measurement extraction:
+```bash
+python measure.py --input [image_path] --height [height_in_cm]
 ```
 
-### Key Features:
-1. **Clear Scope**: Explicitly states "metrics only" upfront
-2. **Minimalist**: No fluff about features not yet implemented
-3. **Expandable**: Leaves room for future updates (3D visualization)
-4. **Machine-readable**: Shows exact JSON output format
-
-Want to add a disclaimer about image requirements? Just append:
-```markdown
-> 📝 **Note**: For best results, use front-facing images with tight-fitting clothing and arms slightly away from the body.
+Example:
+```bash
+python measure.py --input samples/person.jpg --height 175
 ```
+
+### Output
+The script will generate:
+- `measurements.json` containing all body measurements
+- Optional: `measurements.csv` for spreadsheet compatibility
+
+## Supported Measurements
+
+| Measurement | Description |
+|-------------|-------------|
+| Height | Total body height |
+| Waist | Waist circumference |
+| Chest | Chest circumference |
+| Hips | Hip circumference |
+| Arm Length | Shoulder to wrist |
+| Thigh | Thigh circumference |
+| Inseam | Inner leg length |
+
+## Image Requirements
+
+For best results:
+- Front-facing full-body photo
+- Tight-fitting clothing preferred
+- Arms slightly away from body
+- Neutral standing pose
+- Well-lit environment
+
+## Future Improvements
+
+- [ ] Add 3D model visualization
+- [ ] Improve pose normalization
+- [ ] Support for multiple people in one image
